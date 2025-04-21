@@ -5,6 +5,7 @@ import express from "express"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express()
+const PORT  = 4500;
 app.use(express.json())
 app.use(express.static(path.join(__dirname, "../client")));
 
@@ -78,6 +79,9 @@ app.delete(`/movies/:id`, async (req, res)=>{
     return res.status(200).json(title).end()
 
 })
+app.listen(PORT, () => {
+    console.log(`The server is running on http://localhost:${PORT}`);
+  });
 
 
 
